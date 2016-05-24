@@ -96,6 +96,7 @@
 
         var fromKeywords = ['moin', 'da', 'back', 'zurück', 'hallo'];
         var toKeywords = ['afk', 'weg', 'wech', 'tschuess', 'cu', 'ciao', 'mipa', 'pause', 'paus', 'afkaffee', 'tschüss'];
+        var ignoreKeywords= ['zur info', 'fyi'];
         var correctionIndicators = ['seit', 'since'];
 
 
@@ -137,6 +138,10 @@
                         jQuery.each(matches, function (i, val) {
                             //val.text=val.text.concat(' und immer noch was dran');
                             $("#diary").append(produceItem(val.ts, val.text));
+                            if (checkForKeywords(val.text, ignoreKeywords)) {
+                            
+                            }
+                            else {                            
                             if (lastMatch == 'to') {
                                 if (checkForKeywords(val.text, fromKeywords)) {
                                     var time = getCorrectedTime(val)
@@ -153,6 +158,7 @@
                                     slots.push(last);
                                     lastMatch = 'to'
                                 }
+                            }
                             }
                         });
 
@@ -226,7 +232,9 @@
 
         var produceItem = function (timestamp, text) {
             var label = ''
-            if (checkForKeywords(text, toKeywords)) {
+            if (checkForKeywords(text, ignoreKeywords)) {
+                label = '<i class="fa fa-commenting-o" aria-hidden="true"></i>';
+            } else if (checkForKeywords(text, toKeywords)) {
                 label = '<i class="fa fa-comment" aria-hidden="true"></i>';
             } else if (checkForKeywords(text, fromKeywords)) {
                 label = '<i class="fa fa-comment-o" aria-hidden="true"></i>';
