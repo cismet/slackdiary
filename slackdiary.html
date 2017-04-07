@@ -132,7 +132,10 @@
                     //$('#jsout').html(jsonPretty);
                     var success = json.ok;
                     if (success === true) {
-                        var matches = json.messages.matches;
+                        var matches = json.messages.matches.sort(function(entryA, entryB)  {
+                            return entryA.ts>entryB.ts;
+                        });
+
                         var slots = [];
                         var lastMatch = 'to';
                         jQuery.each(matches, function (i, val) {
@@ -289,7 +292,6 @@
             return hit;
 
         };
-
 
         loadSettingFromStorage();
 
