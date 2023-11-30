@@ -1,307 +1,432 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-    </head>
-    <body>
-        <div id="modal-settingsdialog" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="container">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Settings</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-slack" aria-hidden="true"></i></span>
-                                <input type="text" id="txtSlackUserName" class="form-control" placeholder="Slack - Username" aria-describedby="basic-addon1">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-slack" aria-hidden="true"></i></span>
-                                <input type="password" id="pwSlackToken" class="form-control" placeholder="Slack - TOKEN" aria-describedby="basic-addon1">
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                <input type="text" id="txtPTUserName" class="form-control" placeholder="Projecttracker - Username" aria-describedby="basic-addon1">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                <input type="password" id="pwPTPass" class="form-control" placeholder="Projecttracker - Password" aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearAllStoredData();" >Clear all</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelSettings();">Cancel</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveSettingToStorage();">Save changes</button>
-                        </div>                        
-                    </div>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <script src="./js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="modal-settingsdialog"
+      class="modal fade bs-example-modal-sm"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="mySmallModalLabel"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="container">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title">Settings</h4>
             </div>
+            <div class="modal-body">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"
+                  ><i class="fa fa-slack" aria-hidden="true"></i
+                ></span>
+                <input
+                  type="text"
+                  id="txtSlackUserName"
+                  class="form-control"
+                  placeholder="Slack - Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"
+                  ><i class="fa fa-slack" aria-hidden="true"></i
+                ></span>
+                <input
+                  type="password"
+                  id="pwSlackToken"
+                  class="form-control"
+                  placeholder="Slack - TOKEN"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <br />
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"
+                  ><i class="fa fa-calendar" aria-hidden="true"></i
+                ></span>
+                <input
+                  type="text"
+                  id="txtPTUserName"
+                  class="form-control"
+                  placeholder="Projecttracker - Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"
+                  ><i class="fa fa-calendar" aria-hidden="true"></i
+                ></span>
+                <input
+                  type="password"
+                  id="pwPTPass"
+                  class="form-control"
+                  placeholder="Projecttracker - Password"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-dismiss="modal"
+                onclick="clearAllStoredData();"
+              >
+                Clear all
+              </button>
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+                onclick="cancelSettings();"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                onclick="saveSettingToStorage();"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-4 col-md-4"><i class="fa fa-calendar" aria-hidden="true"></i><span>&nbsp;</span><span id ="infoPTUser">no Projecttracker User</span></div>
-                <div class="col-xs-4 col-md-4"><i class="fa fa-slack" aria-hidden="true"></i><span>&nbsp;</span><span id="infoSlackUser">no Slack User</span></div>
-                <div class="col-xs-4 col-md-4 text-right"><i class="fa fa-bars" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-sm"></i></div>
-
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-md-4">
+          <i class="fa fa-calendar" aria-hidden="true"></i><span>&nbsp;</span
+          ><span id="infoPTUser">no Projecttracker User</span>
         </div>
-        <div class="container">
-
-            <nav align="center">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" id="daybefore" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-
-                    <li><a href="#" id="datelink">2016-04-01</a></li>
-
-                    <li>
-                        <a href="#"  id="dayafter"  aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="panel panel-default">
-                <div class="panel-heading">your slots fromn <b>#presence</b></div>
-
-                <div class="panel-body"  id="slots">
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">your messages in <b>#presence</b></div>
-
-                <div class="panel-body" id="diary">
-                </div>
-            </div>
-
+        <div class="col-xs-4 col-md-4">
+          <i class="fa fa-slack" aria-hidden="true"></i><span>&nbsp;</span
+          ><span id="infoSlackUser">no Slack User</span>
         </div>
-    </body>
-    <script type="text/javascript">
-        var todayString = (new Date().toISOString().slice(0, 10));
+        <div class="col-xs-4 col-md-4 text-right">
+          <i
+            class="fa fa-bars"
+            aria-hidden="true"
+            data-toggle="modal"
+            data-target=".bs-example-modal-sm"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <nav align="center">
+        <ul class="pagination">
+          <li>
+            <a href="#" id="daybefore" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
 
-        $('#datelink').html(todayString);
+          <li><a href="#" id="datelink">2016-04-01</a></li>
 
+          <li>
+            <a href="#" id="dayafter" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="panel panel-default">
+        <div class="panel-heading">your slots fromn <b>#presence</b></div>
 
+        <div class="panel-body" id="slots"></div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">your messages in <b>#presence</b></div>
 
-        var fromKeywords = ['moin', 'da', 'back', 'zurück', 'hallo'];
-        var toKeywords = ['afk', 'weg', 'wech', 'tschuess', 'cu', 'ciao', 'mipa', 'pause', 'paus', 'afkaffee', 'tschüss'];
-        var ignoreKeywords= ['zur info', 'fyi'];
-        var correctionIndicators = ['seit', 'since'];
+        <div class="panel-body" id="diary"></div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var todayString = new Date().toISOString().slice(0, 10);
 
+    $("#datelink").html(todayString);
 
-        var slotty = function (from, to) {
-            var user = $('#txtPTUserName').val();
-            var pass = $('#pwPTPass').val();
-            var url = 'https://tracker.cismet.de/ProjectTracker/ProjectTracker/QuickBooking?username=' + user + '&password=' + encodeURIComponent(pass) + '&operation=addSlot&von=' + encodeURIComponent(from) + '&bis=' + encodeURIComponent(to);
-            console.log(url);
-            $.getJSON(url, function (json) {
-                console.log('Yes');
-            });
-        }
+    var fromKeywords = ["moin", "da", "back", "zurück", "hallo"];
+    var toKeywords = [
+      "afk",
+      "weg",
+      "wech",
+      "tschuess",
+      "cu",
+      "ciao",
+      "mipa",
+      "pause",
+      "paus",
+      "afkaffee",
+      "tschüss",
+    ];
+    var ignoreKeywords = ["zur info", "fyi"];
+    var correctionIndicators = ["seit", "since"];
 
-        var getPresence = function () {
-            $("#diary").html('');
-            $('#slots').html('');
+    var slotty = function (from, to) {
+      var user = $("#txtPTUserName").val();
+      var pass = $("#pwPTPass").val();
+      var url =
+        "https://tracker.cismet.de/ProjectTracker/ProjectTracker/QuickBooking?username=" +
+        user +
+        "&password=" +
+        encodeURIComponent(pass) +
+        "&operation=addSlot&von=" +
+        encodeURIComponent(from) +
+        "&bis=" +
+        encodeURIComponent(to);
+      console.log(url);
+      $.getJSON(url, function (json) {
+        console.log("Yes");
+      });
+    };
 
-            if (localStorage.getItem("slackToken")) {
+    var getPresence = function () {
+      $("#diary").html("");
+      $("#slots").html("");
 
-                var date = $('#datelink').html();
-                var user = $('#txtSlackUserName').val();
-                var query = 'in:presence on:'.concat(date).concat('  from:@').concat(user);
+      if (localStorage.getItem("slackToken")) {
+        var date = $("#datelink").html();
+        var user = $("#txtSlackUserName").val();
+        var query = "in:presence on:"
+          .concat(date)
+          .concat("  from:@")
+          .concat(user);
 
-                $.getJSON('https://slack.com/api/search.messages', {
-                    token: localStorage.getItem("slackToken"),
-                    query: query,
-                    sort: 'timestamp',
-                    sort_dir: 'asc',
-                    count: 40,
-                    pretty: 1
-                }, function (json) {
-                    var jsonPretty = JSON.stringify(json, null, '\t');
-                    //$('#jsout').html(jsonPretty);
-                    var success = json.ok;
-                    if (success === true) {
-                        var matches = json.messages.matches.sort(function(entryA, entryB)  {
-                           if (entryA.ts > entryB.ts) {
-                               return 1;
-                            }
-                            if (entryA.ts < entryB.ts) {
-                                return -1;
-                            }
-                            
-                            return 0;
-                         });
-
-                        var slots = [];
-                        var lastMatch = 'to';
-                        jQuery.each(matches, function (i, val) {
-                            //val.text=val.text.concat(' und immer noch was dran');
-                            $("#diary").append(produceItem(val.ts, val.text));
-                            if (checkForKeywords(val.text, ignoreKeywords)) {
-                            
-                            }
-                            else {                            
-                            if (lastMatch == 'to') {
-                                if (checkForKeywords(val.text, fromKeywords)) {
-                                    var time = getCorrectedTime(val)
-                                    slots.push({
-                                        from: time,
-                                        to: ''
-                                    });
-                                    lastMatch = 'from'
-                                }
-                            } else {
-                                if (checkForKeywords(val.text, toKeywords)) {
-                                    var last = slots.pop();
-                                    last.to = getCorrectedTime(val);
-                                    slots.push(last);
-                                    lastMatch = 'to'
-                                }
-                            }
-                            }
-                        });
-
-
-                        var slotCounter = 0;
-                        jQuery.each(slots, function (i, val) {
-                            var fromAttr = "fromTS";
-                            if (val.from && val.to) {
-                                $("#slots").append(' '.concat(val.from, ' <i class="fa fa-arrows-h" aria-hidden="true"></i> ', val.to, ' &nbsp;&nbsp;&nbsp; <button class="btn btn-default btn-xs" type="button" fromTS="', date + " " + val.from, '" toTS="', date + " " + val.to, '" onclick="slotty(this.getAttribute(\'fromTS\'),this.getAttribute(\'toTS\'));"><i class="fa fa-plus-circle" aria-hidden="true"></i></button> <BR>'));
-                            } else {
-                                $("#slots").append(' '.concat(val.from, ' <i class="fa fa-long-arrow-left" aria-hidden="true"></i> ', val.to, '<BR>'));
-                            }
-
-                            slotCounter++;
-                        });
-                    }
-                });
-            } else {
-                $('#modal-settingsdialog').modal('show');
-            }
-        }
-
-        var adjustDate = function (x) {
-            var date = new Date($('#datelink').html());
-            date.setDate(date.getDate() + x);
-            $('#datelink').html(date.toISOString().slice(0, 10));
-            getPresence();
-
-        }
-
-        var daybefore = function () {
-            adjustDate(-1);
-        }
-        var dayafter = function () {
-            adjustDate(1);
-        }
-
-        var clearAllStoredData = function () {
-            localStorage.removeItem("txtPTUserName");
-            localStorage.removeItem("txtSlackUserName");
-            localStorage.removeItem("pwPTPass");
-            localStorage.removeItem("slackToken");
-            loadSettingFromStorage();
-            getPresence();
-        }
-        var cancelSettings = function () {
-            loadSettingFromStorage();
-            getPresence();
-        }
-        var saveSettingToStorage = function () {
-            localStorage.setItem("txtPTUserName", $('#txtPTUserName').val());
-            localStorage.setItem("txtSlackUserName", $('#txtSlackUserName').val());
-            localStorage.setItem("pwPTPass", $('#pwPTPass').val());
-            localStorage.setItem("slackToken", $('#pwSlackToken').val());
-            loadSettingFromStorage();
-            getPresence();
-        }
-        var loadSettingFromStorage = function () {
-            $('#txtSlackUserName').val(localStorage.getItem("txtSlackUserName"));
-            $('#infoSlackUser').html(localStorage.getItem("txtSlackUserName"));
-            $('#txtPTUserName').val(localStorage.getItem("txtPTUserName"));
-            $('#infoPTUser').html(localStorage.getItem("txtPTUserName"));
-            $('#pwPTPass').val(localStorage.getItem("pwPTPass"));
-            $('#pwSlackToken').val(localStorage.getItem("slackToken"));
-        }
-
-        $('#datelink').click(getPresence);
-        $('#daybefore').click(daybefore);
-        $('#dayafter').click(dayafter);
-
-
-        var produceItem = function (timestamp, text) {
-            var label = ''
-            if (checkForKeywords(text, ignoreKeywords)) {
-                label = '<i class="fa fa-commenting-o" aria-hidden="true"></i>';
-            } else if (checkForKeywords(text, toKeywords)) {
-                label = '<i class="fa fa-comment" aria-hidden="true"></i>';
-            } else if (checkForKeywords(text, fromKeywords)) {
-                label = '<i class="fa fa-comment-o" aria-hidden="true"></i>';
-            } else {
-                label = '<i class="fa fa-commenting-o" aria-hidden="true"></i>';
-            }
-            return label.concat('&nbsp;&nbsp;', getTime(timestamp), ' ', text, '<br>');
-        };
-
-        var getTime = function (timestamp) {
-            return new Date(timestamp * 1000).toTimeString().split(' ')[0].substring(0, 5);
-        }
-        var getCorrectedTime = function (val) {
-            var message = val.text.toLowerCase();
-            var timestamp = val.ts;
-            var hit = false;
-            var result = '';
-            jQuery.each(correctionIndicators, function (i, v) {
-                var term = v.toLowerCase();
-                var match = message.indexOf(term);
-                if (match > -1) {
-                    var timeStartsAt = message.search('([01]?[0-9]|2[0-3]):[0-5][0-9]');
-                    if (timeStartsAt > -1) {
-                        var extractedTimeTillEnd = message.substring(timeStartsAt, message.length);
-                        var dotdot = extractedTimeTillEnd.indexOf(':');
-                        result = extractedTimeTillEnd.substring(0, dotdot + 3);
-                        if (result.length == 4) {
-                            result = '0'.concat(result);
-                        }
-                        hit = true;
-                    }
-                    return false; //break the loop
+        $.getJSON(
+          "https://slack.com/api/search.messages",
+          {
+            token: localStorage.getItem("slackToken"),
+            query: query,
+            sort: "timestamp",
+            sort_dir: "asc",
+            count: 40,
+            pretty: 1,
+          },
+          function (json) {
+            var jsonPretty = JSON.stringify(json, null, "\t");
+            //$('#jsout').html(jsonPretty);
+            var success = json.ok;
+            if (success === true) {
+              var matches = json.messages.matches.sort(function (
+                entryA,
+                entryB
+              ) {
+                if (entryA.ts > entryB.ts) {
+                  return 1;
                 }
-            });
-            if (hit) {
-                return result;
-            } else {
-                return getTime(timestamp);
-            }
-        }
-
-        var checkForKeywords = function (input, keywords) {
-            var s = input.toLowerCase();
-            var hit = false;
-            jQuery.each(keywords, function (i, v) {
-                var match = s.indexOf(v.toLowerCase());
-                if (match > -1) {
-                    hit = true;
-                    return false; //breaks the each loop
+                if (entryA.ts < entryB.ts) {
+                  return -1;
                 }
-            });
-            return hit;
 
-        };
+                return 0;
+              });
 
-        loadSettingFromStorage();
+              var slots = [];
+              var lastMatch = "to";
+              jQuery.each(matches, function (i, val) {
+                //val.text=val.text.concat(' und immer noch was dran');
+                $("#diary").append(produceItem(val.ts, val.text));
+                if (checkForKeywords(val.text, ignoreKeywords)) {
+                } else {
+                  if (lastMatch == "to") {
+                    if (checkForKeywords(val.text, fromKeywords)) {
+                      var time = getCorrectedTime(val);
+                      slots.push({
+                        from: time,
+                        to: "",
+                      });
+                      lastMatch = "from";
+                    }
+                  } else {
+                    if (checkForKeywords(val.text, toKeywords)) {
+                      var last = slots.pop();
+                      last.to = getCorrectedTime(val);
+                      slots.push(last);
+                      lastMatch = "to";
+                    }
+                  }
+                }
+              });
 
-        getPresence();
-    </script>
-    <html>
+              var slotCounter = 0;
+              jQuery.each(slots, function (i, val) {
+                var fromAttr = "fromTS";
+                if (val.from && val.to) {
+                  $("#slots").append(
+                    " ".concat(
+                      val.from,
+                      ' <i class="fa fa-arrows-h" aria-hidden="true"></i> ',
+                      val.to,
+                      ' &nbsp;&nbsp;&nbsp; <button class="btn btn-default btn-xs" type="button" fromTS="',
+                      date + " " + val.from,
+                      '" toTS="',
+                      date + " " + val.to,
+                      '" onclick="slotty(this.getAttribute(\'fromTS\'),this.getAttribute(\'toTS\'));"><i class="fa fa-plus-circle" aria-hidden="true"></i></button> <BR>'
+                    )
+                  );
+                } else {
+                  $("#slots").append(
+                    " ".concat(
+                      val.from,
+                      ' <i class="fa fa-long-arrow-left" aria-hidden="true"></i> ',
+                      val.to,
+                      "<BR>"
+                    )
+                  );
+                }
+
+                slotCounter++;
+              });
+            }
+          }
+        );
+      } else {
+        $("#modal-settingsdialog").modal("show");
+      }
+    };
+
+    var adjustDate = function (x) {
+      var date = new Date($("#datelink").html());
+      date.setDate(date.getDate() + x);
+      $("#datelink").html(date.toISOString().slice(0, 10));
+      getPresence();
+    };
+
+    var daybefore = function () {
+      adjustDate(-1);
+    };
+    var dayafter = function () {
+      adjustDate(1);
+    };
+
+    var clearAllStoredData = function () {
+      localStorage.removeItem("txtPTUserName");
+      localStorage.removeItem("txtSlackUserName");
+      localStorage.removeItem("pwPTPass");
+      localStorage.removeItem("slackToken");
+      loadSettingFromStorage();
+      getPresence();
+    };
+    var cancelSettings = function () {
+      loadSettingFromStorage();
+      getPresence();
+    };
+    var saveSettingToStorage = function () {
+      localStorage.setItem("txtPTUserName", $("#txtPTUserName").val());
+      localStorage.setItem("txtSlackUserName", $("#txtSlackUserName").val());
+      localStorage.setItem("pwPTPass", $("#pwPTPass").val());
+      localStorage.setItem("slackToken", $("#pwSlackToken").val());
+      loadSettingFromStorage();
+      getPresence();
+    };
+    var loadSettingFromStorage = function () {
+      $("#txtSlackUserName").val(localStorage.getItem("txtSlackUserName"));
+      $("#infoSlackUser").html(localStorage.getItem("txtSlackUserName"));
+      $("#txtPTUserName").val(localStorage.getItem("txtPTUserName"));
+      $("#infoPTUser").html(localStorage.getItem("txtPTUserName"));
+      $("#pwPTPass").val(localStorage.getItem("pwPTPass"));
+      $("#pwSlackToken").val(localStorage.getItem("slackToken"));
+    };
+
+    $("#datelink").click(getPresence);
+    $("#daybefore").click(daybefore);
+    $("#dayafter").click(dayafter);
+
+    var produceItem = function (timestamp, text) {
+      var label = "";
+      if (checkForKeywords(text, ignoreKeywords)) {
+        label = '<i class="fa fa-commenting-o" aria-hidden="true"></i>';
+      } else if (checkForKeywords(text, toKeywords)) {
+        label = '<i class="fa fa-comment" aria-hidden="true"></i>';
+      } else if (checkForKeywords(text, fromKeywords)) {
+        label = '<i class="fa fa-comment-o" aria-hidden="true"></i>';
+      } else {
+        label = '<i class="fa fa-commenting-o" aria-hidden="true"></i>';
+      }
+      return label.concat(
+        "&nbsp;&nbsp;",
+        getTime(timestamp),
+        " ",
+        text,
+        "<br>"
+      );
+    };
+
+    var getTime = function (timestamp) {
+      return new Date(timestamp * 1000)
+        .toTimeString()
+        .split(" ")[0]
+        .substring(0, 5);
+    };
+    var getCorrectedTime = function (val) {
+      var message = val.text.toLowerCase();
+      var timestamp = val.ts;
+      var hit = false;
+      var result = "";
+      jQuery.each(correctionIndicators, function (i, v) {
+        var term = v.toLowerCase();
+        var match = message.indexOf(term);
+        if (match > -1) {
+          var timeStartsAt = message.search("([01]?[0-9]|2[0-3]):[0-5][0-9]");
+          if (timeStartsAt > -1) {
+            var extractedTimeTillEnd = message.substring(
+              timeStartsAt,
+              message.length
+            );
+            var dotdot = extractedTimeTillEnd.indexOf(":");
+            result = extractedTimeTillEnd.substring(0, dotdot + 3);
+            if (result.length == 4) {
+              result = "0".concat(result);
+            }
+            hit = true;
+          }
+          return false; //break the loop
+        }
+      });
+      if (hit) {
+        return result;
+      } else {
+        return getTime(timestamp);
+      }
+    };
+
+    var checkForKeywords = function (input, keywords) {
+      var s = input.toLowerCase();
+      var hit = false;
+      jQuery.each(keywords, function (i, v) {
+        var match = s.indexOf(v.toLowerCase());
+        if (match > -1) {
+          hit = true;
+          return false; //breaks the each loop
+        }
+      });
+      return hit;
+    };
+
+    loadSettingFromStorage();
+
+    getPresence();
+  </script>
+  <html></html>
+</html>
